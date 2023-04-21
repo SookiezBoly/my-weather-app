@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- css link -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+
+    <!-- js link-->
+
+    <title>Weather app</title>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container" data-container>
+
+            <div class="search-view" data-search-view>
+                <div class="search-wrapper">
+                    <input type="text" name="text" id="input-box" placeholder="search city..." autocomplete="off" data-input-field>
+                    <button></button><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+    
+                <div class="search-result" data-search-list>
+                    <ul class="city-list" data-city-list>
+                        <li class="city">
+                            <i class="fa-thin fa-location-dot"></i>
+    
+                            <div>
+                                <p class="city-name">Paris</p>
+                                <p class="city-subtitle">State of Paris, FR</p>
+                            </div>
+    
+                            <a href="#" class="city-link" data-link-city></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="current-location">
+                <a href="" class="btn-current-location" data-current-location>
+                    <i class="fa-light fa-location-crosshairs"></i>
+                    <span>Current location</span>
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- MAIN -->
+    <main>
+        <section class="container">
+
+            <article class="display-card">
+                <div class="head-weather">
+                    <i class="fa-light fa-location-crosshairs"></i>
+                    <p class="city-name">Paris, France</p>
+                </div>
+
+                <div class="weather">
+                    <p class="time">Now</p>
+                    <div class="wrapper-weather">
+                        <img src="" class="weather-icon" alt="icon weather" width="50" height="50" loading="lazy">
+                        <p class="desc">20 &deg;</p>
+                    </div>
+                </div>
+
+                <div class="today-highlight">
+                    
+                </div>
+            </article>
+
+
+            <!--
+
+                SLIDER OF MY WEATHERS CARDS
+
+            -->
+            <article class="weather-cards forecast">
+                <div class="input-radion">
+                    <input type="radio" name="radio-btn" id="radio1">
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+                    <input type="radio" name="radio-btn" id="radio4">
+                </div>
+
+                <!-- temperature carroussel starts -->
+                <div class="carroussel" data-carroussel>
+                    <a href="#" class="slide first active" data-card>
+                        <div class="card today">
+                            <p class="desc">TODAY, 21/04</p>
+                            <img src="" class="weather-icon" alt="icon weather" width="50" height="50" loading="lazy">
+                            <p class="desc">20 &deg;</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="slide" data-card>
+                        <div class="card today">
+                            <p class="desc">TOMORROW, 22/04</p>
+                            <img src="" class="weather-icon" alt="icon weather" width="50" height="50" loading="lazy">
+                            <p class="desc">21 &deg;</p>
+                        </div>
+                    </a>
+    
+                    <a href="#" class="slide" data-card>
+                        <p class="desc">J+2, 23/04</p>
+                        <img src="" class="weather-icon" alt="icon weather" width="50" height="50" loading="lazy">
+                        <p class="desc">21 &deg;</p>
+                    </a>
+    
+                    <a href="#" class="slide" data-card>
+                        <div class="card today">
+                            <p class="desc">J+2, 24/04</p>
+                            <img src="" class="weather-icon" alt="icon weather" width="50" height="50" loading="lazy">
+                            <p class="desc">25 &deg;</p>
+                        </div>
+                    </a>
+    
+                    <a href="#" class="slide" data-card>
+                        <div class="card today">
+                            <p class="desc">J+3, 25/04</p>
+                            <img src="" class="weather-icon" alt="icon weather" width="50" height="50" loading="lazy">
+                            <p class="desc">40 &deg;</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- temperature carroussel ends -->
+
+                <!-- manual navigation start -->
+                <div class="navigation-manual">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn"></label>
+                    <label for="radio3" class="manual-btn"></label>
+                    <label for="radio4" class="manual-btn"></label>
+                </div>
+                <!-- manual navigation end -->
+
+            </article>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="copyright">Copyright 2023 Sookiez Boly. All Rights Reserved</p>
+        <p class="pweredBy">
+            Powered by <a href="http://openweathermap.org/api" title="Free OpenWeather Api" target="_blank" rel="noopener">
+                <img src="./images/openweather.png" alt="OpenWeather" width="150" height="30" loading="lazy">
+            </a>
+        </p>
+    </footer>
+</body>
+</html>
