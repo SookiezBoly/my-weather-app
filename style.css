@@ -138,10 +138,10 @@ input,
 }
 
 .btn-current-location[disabled]{
-    cursor: not-allowed;
     background: #3E3D40;
     color: #7B7980;
     pointer-events: none;
+    cursor: not-allowed;
 }
 
 /* ---------------------- MAIN ----------------------------- */
@@ -150,7 +150,6 @@ main{
     margin: 0 20rem;
     padding: 3rem;
     flex-grow: 1;
-    /* border: 1px solid black; */
 }
 
 main > .container{
@@ -159,8 +158,6 @@ main > .container{
 }
 
 .container .display-card{
-    border: 1px solid black;
-
     position: relative;
     display: flex;
     flex-direction: column;
@@ -169,7 +166,6 @@ main > .container{
     width: 90%;
     max-width: 550px;
     height: 450px;
-    /* background: linear-gradient(135deg, #00feba, #5b548a); */
     color: #fff;
     border-radius: 10px;
 }
@@ -221,7 +217,7 @@ main > .container{
 }
 
 .container .display-card > ul > li{
-    border: 2px solid;
+    border: 2px solid; 
     padding-inline: 2rem 2rem;
     box-shadow: 6px 4px 8px -2px black;
 }
@@ -248,11 +244,6 @@ main > .container{
     gap: 1rem;
     padding: 1rem 1rem 1rem 0;
 }
-
-
-
-
-
 
 
 

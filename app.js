@@ -1,7 +1,6 @@
 'use strict';
 
 import {url, fetchDatasLocation } from './api_gestion.js';
-import { carouselWeather } from './carousel.js';
 import { getDate, getDay } from './conversion.js';
 
 const currentLocationButton = document.querySelector('[data-current-location]');
@@ -169,7 +168,7 @@ function lookForCity(){
                 
                                           </ul>`;
                 
-                for( const {name, state, country} of location){
+                for( const {name, state, country, lat, lon} of location){
                     const li_item = document.createElement('li');
                     li_item.classList.add('city');
                     li_item.setAttribute('data-city-list', '');
@@ -181,7 +180,7 @@ function lookForCity(){
                                 <p class="city-subtitle">${state || ''}, ${country || ''}</p>
                             </div>
 
-                            <a href="#" class="city-link" data-link-city></a>
+                            <a href="#/weather/?lat=${lat}&lon=${lon}" class="city-link" data-link-city></a>
                     `;
                     
                     const dataCityList = searchResult.querySelector('[data-city-list]');
@@ -200,10 +199,16 @@ function lookForCity(){
 window.addEventListener('load', loadPage);
 
 function loadPage(){
-    if(!window.location.hash){
-        window.location.hash = '#/current-location';   
+    const hashWindow = window.location.hash 
+    if(!hashWindow){
+        window.location.hash = '#/current-location';
+        getCurrentLocation();   
     }else{
-        
+        if(!hashWindow.includes('#/current-location')){
+            const coord = getCoordHashWeather(hashWindow);
+            getAllWeathers(coord.lat, coord.lon);
+
+        }
     }
 }
 
@@ -216,8 +221,7 @@ currentLocationButton.addEventListener('click', getCurrentLocation);
 function getCurrentLocation(){
     window.navigator.geolocation.getCurrentPosition( response => {
         const {latitude, longitude } = response.coords;
-        getAllWeathers(latitude, longitude);
-        
+        getAllWeathers(latitude, longitude);  
     },
     error => {
         window.location.hash = defaultLocation;
@@ -241,3 +245,24 @@ const getCoordDefault = function(query){
 
     return coord;
 }
+
+const getCoordHashWeather = function(query){
+    const tempTab = query.split('?');
+    const coord = getCoordDefault(tempTab[1]);
+
+    return coord;
+}
+
+
+
+window.addEventListener('click', (evt) => {
+    if(evt.target.localName === 'input') searchResult.style.display = 'block';
+    
+    if(evt.target.classList.contains('city-link')){
+        const hashCity = evt.target.href
+        const coord = getCoordHashWeather(hashCity);
+        getAllWeathers(coord.lat, coord.lon);
+        searchResult.style.display = 'none';
+        currentLocationButton.removeAttribute('disabled');
+    }
+})
