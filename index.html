@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./weather_icons/favicon.svg" type="image/svg+xml">
+
     <!-- css link -->
     <link rel="stylesheet" href="style.css">
 
@@ -12,6 +15,10 @@
     <script src="https://kit.fontawesome.com/8c2bd0be43.js" crossorigin="anonymous"></script>
 
     <!-- js link-->
+    <script src="api_gestion.js" type="module"></script> 
+    <script src="app.js" type="module" defer></script> 
+    <script src="conversion.js" type="module" defer></script>
+    <script src="carousel.js" type="module" defer></script>
 
     <title>Weather app</title>
 </head>
@@ -30,7 +37,7 @@
                 </div>
     
                 <div class="search-result" data-search-list>
-                    <ul class="city-list" data-city-list>
+                    <!-- <ul class="city-list" data-city-list>
                         <li class="city">
                             <i class="fa-solid fa-location-dot"></i>
     
@@ -41,11 +48,11 @@
     
                             <a href="#" class="city-link" data-link-city></a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
 
-            <a href="" class="btn-current-location" data-current-location>
+            <a href="#/current-location" class="btn-current-location" data-current-location>
                 <i class="fa-solid fa-location-crosshairs"></i>
                 <span>Current location</span>
             </a>
@@ -58,46 +65,50 @@
     <main>
         <section class="container">
 
-            <article class="display-card">
-                <div class="head-weather">
-                    <i class="fa-light fa-location-crosshairs"></i>
-                    <p class="city-name">Paris, France</p>
+            <article class="display-card" data-display-card>
+                <!-- <div class="head-weather">
+                    <i class="fa-solid fa-location-crosshairs"  width="364px" height="58px"></i>
+                    <h1 class="city-name">Paris, France</h1>
                 </div>
 
+                <span class="time">Now</span>
+
                 <div class="weather">
-                    <p class="time">Now</p>
                     <div class="wrapper-weather">
-                        <img src="./weather_icons/01d.png" class="weather-icon" alt="icon weather" width="50" height="50" loading="lazy">
-                        <p class="desc">20 &deg;</p>
+                        <img src="./weather_icons/01n.png" class="weather-icon" alt="icon weather" width="100" height="100" loading="lazy">
+                        <p>very sunday</p>
+                        <p class="temperature">20 &deg;</p>
                     </div>
                 </div>
 
 
-                <ul class="today-highlight">
+                <ul class="today-highlight" data-today-highlight>
+
                     <li class="highlight">
-                        <img src="./weather_icons/01d.png" class="weather-icon" alt="icon weather" width="50" height="50" loading="lazy">
+                        <p class="title">Humidity</p>     
                         <div class="infos">
+                            <i class="fa-solid fa-water" width="30" height="30" loading="lazy"></i>
                             <p class="desc">48%</p>
-                            <p class="title">humidity</p>
                         </div>
                     </li>
 
                     <li class="highlight">
-                        <img src="./weather_icons/01d.png" class="weather-icon" alt="icon weather" width="50" height="50" loading="lazy">
+                        <p class="title">Wind Speed</p>
                         <div class="infos">
+                            <i class="fa-solid fa-wind" width="30" height="30" loading="lazy"></i>
                             <p class="desc">good</p>
-                            <p class="title">air quality</p>
+                        </div>
+                    </li>
+                
+                    <li class="highlight">
+                        <p class="title">Air Quality</p>   
+                        <div class="infos">
+                            <i class="fa-solid fa-fan" width="30" height="30" loading="lazy"></i>
+                            <p class="desc">good</p>
                         </div>
                     </li>
 
-                    <li class="highlight">
-                        <img src="./weather_icons/01d.png" class="weather-icon" alt="icon weather" width="50" height="50" loading="lazy">
-                        <div class="infos">
-                            <p class="desc">good</p>
-                            <p class="title-highlight">wind speed</p>
-                        </div>
-                    </li>
-                </ul>
+                </ul> -->
             </article>
 
             <!--
@@ -105,80 +116,62 @@
                 SLIDER OF MY WEATHERS CARDS
 
             -->
-            <article class="weather-cards forecast">
-                <div class="input-radion">
-                    <input type="radio" name="radio-btn" id="radio1">
-                    <input type="radio" name="radio-btn" id="radio2">
-                    <input type="radio" name="radio-btn" id="radio3">
-                    <input type="radio" name="radio-btn" id="radio4">
-                    <input type="radio" name="radio-btn" id="radio5">
-                </div>
-
-                <!-- temperature carroussel starts -->
-                <ul class="carroussel" data-carroussel>
-                    <li class="slide active" data-slide>
-                        <button class="card">
+            <article class="weather-cards carousel" data-carousel>
+              <div class="carousel_slider" data-carroussel-slider>
+                <!-- temperature carroussel starts -->  
+                <ul class="carroussel_list" data-carroussel-list>
+                    <!-- <li class="slide" data-slide>
+                        <div class="card">
                             <p class="desc">TODAY, 22/04</p>
                             <img src="./weather_icons/01d.png" class="weather-icon" alt="icon weather" width="50" height="50" loading="lazy">
                             <p class="desc">20 &deg;</p>
-                        </button>
+                        </div>
                     </li>
 
-                    <li class="slide active" data-slide>
-                        <button class="card">
+                    <li class="slide" data-slide>
+                        <div class="card">
                             <p class="desc">TOMORROW, 23/04</p>
                             <img src="./weather_icons/01d.png" class="weather-icon" alt="icon weather" width="50" height="50" loading="lazy">
                             <p class="desc">20 &deg;</p>
-                        </button>
+                        </div>
                     </li>
 
-                    <li class="slide active" data-slide>
-                        <button class="card">
+                    <li class="slide" data-slide>
+                        <div class="card">
                             <p class="desc">J+2, 24/04</p>
                             <img src="./weather_icons/01d.png" class="weather-icon" alt="icon weather" width="50" height="50" loading="lazy">
                             <p class="desc">20 &deg;</p>
-                        </button>
+                        </div>
                     </li>
 
-                    <li class="slide active" data-slide>
-                        <button class="card">
+                    <li class="slide" data-slide>
+                        <div class="card">
                             <p class="desc">J+3, 25/04</p>
                             <img src="./weather_icons/01d.png" class="weather-icon" alt="icon weather" width="50" height="50" loading="lazy">
                             <p class="desc">20 &deg;</p>
-                        </button>
+                        </div>
                     </li>
 
-                    <li class="slide active" data-slide>
-                        <button class="card">
+                    <li class="slide" data-slide>
+                        <div class="card">
                             <p class="desc">J+4, 26/04</p>
                             <img src="./weather_icons/01d.png" class="weather-icon" alt="icon weather" width="50" height="50" loading="lazy">
                             <p class="desc">20 &deg;</p>
-                        </button>
-                    </li>
+                        </div>
+                    </li> -->
                 </ul>
+            </div>  
                 <!-- temperature carroussel ends -->
-
-                <!-- manual navigation start -->
-                <div class="navigation-manual">
-                    <label for="radio1" class="manual-btn"></label>
-                    <label for="radio2" class="manual-btn"></label>
-                    <label for="radio3" class="manual-btn"></label>
-                    <label for="radio4" class="manual-btn"></label>
-                    <label for="radio5" class="manual-btn"></label>
-                </div>
-                <!-- manual navigation end -->
             </article>
 
         </section>
     </main>
 
-    <!-- <footer class="footer">
-        <p class="copyright">Copyright 2023 Sookiez Boly. All Rights Reserved</p>
+    <footer class="footer">
+        <p class="copyright">Copyright 2023 Etno Polino. All Rights Reserved</p>
         <p class="pweredBy">
-            Powered by <a href="http://openweathermap.org/api" title="Free OpenWeather Api" target="_blank" rel="noopener">
-                <img src="./images/openweather.png" alt="OpenWeather" width="150" height="30" loading="lazy">
-            </a>
+            Powered by <a href="http://openweathermap.org/api" title="Free OpenWeather Api" target="_blank" rel="noopener">openweathermap</a>
         </p>
-    </footer> -->
+    </footer>
 </body>
 </html>
