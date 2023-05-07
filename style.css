@@ -286,7 +286,7 @@ main > .container{
     width: 500%;
     border-radius: 5px;
     font-size: 1.3rem;
-    animation: 5s slide infinite linear;
+    /* animation: 5s slide infinite linear; */
 }
 
 .weather-cards .carroussel_list > li:hover{
@@ -308,6 +308,7 @@ main > .container{
     height: 100%;
     justify-content: space-evenly;
     color: #fff;
+    pointer-events: none;
 }
 
 .weather-cards .carroussel_list > li > .card:first-child{

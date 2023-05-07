@@ -2,6 +2,7 @@
 
 import {url, fetchDatasLocation } from './api_gestion.js';
 import { getDate, getDay } from './conversion.js';
+import { carouselWeather } from './carousel.js'
 
 const currentLocationButton = document.querySelector('[data-current-location]');
 const defaultLocation = '#/weather?lat=48.8534951&lon=2.3483915';
@@ -129,11 +130,20 @@ const getAllWeathers = function(lat, lon){
                     <p class="desc">${temp}&deg;C</p>
                 </div>
                 `;
+
                 carouselList.appendChild(slideLi);
             }
-        });
+
+            carouselWeather();
+            
+            
+            
+        }); // fin du fetch.
+
+        
     });
 }
+
 
 
 
@@ -264,5 +274,11 @@ window.addEventListener('click', (evt) => {
         getAllWeathers(coord.lat, coord.lon);
         searchResult.style.display = 'none';
         currentLocationButton.removeAttribute('disabled');
+    }
+
+
+    /* à explorer */
+    if(evt.target.classList.contains('slide') || evt.target.classList.contains('card')){
+        console.log('SLIDE');
     }
 })

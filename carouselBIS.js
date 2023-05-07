@@ -1,29 +1,24 @@
 'use strict';
 
-function carouselWeather(){
+function carouselWeather(node){
     const carouselSlider = document.querySelector('[data-carroussel-slider]');
-    const list = document.querySelector('[data-carroussel-list]');
     let list2;
 
     const speed = 1;
 
-    const width = list.offsetWidth;
+    const width = node.offsetWidth;
     let begin = 0;
     let end = width;
 
     function clone(){
-
-        carouselSlider.childElementCount >=2 ? list2 = null : list.cloneNode(true);
-
-        // list2 = list.cloneNode(true);
-        // carouselSlider.appendChild(list2);
-        carouselSlider.innerHTML = `${list2}`;
+        list2 = node.cloneNode(true);
+        carouselSlider.appendChild(list2);
         list2.style.left = `${width}px`;
     }
 
     function moveFirst(){
         begin -= speed;
-        width >= Math.abs(begin) ? list.style.left = `${begin}px` : begin = width;
+        width >= Math.abs(begin) ? node.style.left = `${begin}px` : begin = width;
     }
 
     function moveSecond(){

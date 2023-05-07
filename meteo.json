@@ -1,0 +1,14 @@
+[
+    {
+        "id" : 333,
+        "date" : 1231455,
+        "nom" : "paris",
+        "pays": "france",
+        "temperature": 10,
+        "icon" : "03d",
+        "description": "description",
+        "humidité": 40,
+        "_speed" : 40,
+        "air quality": "good" 
+    }
+]

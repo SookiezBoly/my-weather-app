@@ -9,7 +9,14 @@
 
 const api_key = '13abc51e825841d1e299e00ca43750aa';
 
-const fetchDatasLocation = async function(url, callback){
+// const fetchDatasLocation = async function(url, callback){
+//     const response = await fetch(`${url}&appid=${api_key}`, {mode : 'cors'});
+//     const dataWeather = await response.json();
+//     return callback(dataWeather);
+// }
+
+
+const fetchDatasLocation = async function (url, callback){
     const response = await fetch(`${url}&appid=${api_key}`, {mode : 'cors'});
     const dataWeather = await response.json();
     return callback(dataWeather);
